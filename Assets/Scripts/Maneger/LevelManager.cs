@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,10 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
+
+    void Awake(){
+        animator.enabled = false;  // Menonaktifkan animator pada awal game agar tidak langsung memainkan animasi
+    }
     public void LoadScene(string sceneName)
     {
         StartCoroutine(LoadSceneAsync(sceneName));
@@ -13,22 +18,11 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator LoadSceneAsync(string sceneName)
     {
-        if (animator != null)
-        {
-            animator.SetTrigger("StartTransition"); // Memulai animasi pada transisi
-        }
+        animator.enabled = true; // Mengaktifkan animator untuk transisi
+        animator.SetTrigger("EndTransition");
+        yield return new WaitForSeconds(1);
 
-        yield return new WaitForSeconds(1f); // Menunggu animasi untuk selesai (sesuaikan pada waktu ini)
+        SceneManager.LoadSceneAsync(sceneName);
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-
-        if (animator != null)
-        {
-            animator.SetTrigger("EndTransition"); // Mengakhiri animasi pada transisi ini
-        }
     }
 }
