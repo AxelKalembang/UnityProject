@@ -59,13 +59,13 @@ AnimatorController:
   m_Name: SceneTransitionController.
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: StartTransition
+  - m_Name: EndTransition
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
-  - m_Name: EndTransition
+  - m_Name: StartTransition
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
