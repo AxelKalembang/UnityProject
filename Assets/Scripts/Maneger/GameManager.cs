@@ -11,23 +11,17 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Debug.Log("GameManager Sedang Dibuat.");
         }
         else
         {
             Destroy(gameObject);
-            return;
         }
 
-        // Pastikan LevelManager ada sebagai komponen
+        // Mendapatkan komponen pada LevelManager
         LevelManager = GetComponent<LevelManager>();
-        if (LevelManager != null)
+        if (LevelManager == null)
         {
-            Debug.Log("LevelManager Berhasil dimasukin.");
-        }
-        else
-        {
-            Debug.LogWarning("LevelManager Tidak dapat dimasuki.");
+            Debug.LogWarning("LevelManager component menghilang pada GameManager.");
         }
     }
 }

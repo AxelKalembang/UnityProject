@@ -6,22 +6,21 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
-    public void LoadScene(string Main)
+    public void LoadScene(string sceneName)
     {
-        Debug.Log("LoadScene called for scene: " + Main);
-        StartCoroutine(LoadSceneAsync(Main));
+        StartCoroutine(LoadSceneAsync(sceneName));
     }
 
-    private IEnumerator LoadSceneAsync(string Main)
+    private IEnumerator LoadSceneAsync(string sceneName)
     {
         if (animator != null)
         {
-            animator.SetTrigger("StartTransition");
+            animator.SetTrigger("StartTransition"); // Memulai animasi pada transisi
         }
 
-        yield return new WaitForSeconds(1f); 
+        yield return new WaitForSeconds(1f); // Menunggu animasi untuk selesai (sesuaikan pada waktu ini)
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Main);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         while (!asyncLoad.isDone)
         {
             yield return null;
@@ -29,7 +28,7 @@ public class LevelManager : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetTrigger("EndTransition");
+            animator.SetTrigger("EndTransition"); // Mengakhiri animasi pada transisi ini
         }
     }
 }
