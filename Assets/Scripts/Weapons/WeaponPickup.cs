@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour
 {
-    [SerializeField] Weapon weaponHolder; // Weapon prefab yang akan diberikan kepada player
-    [SerializeField] GameObject portal; // Berguna untuk asteroit (portal) muncul saat mengambil weapon
-    Weapon weapon; // Referensi ke objek weapon yang diambil dari weaponHolder
+    [SerializeField] Weapon weaponHolder;
+    [SerializeField] GameObject portal;
+    Weapon weapon;
 
     void Awake()
     {
@@ -15,24 +15,16 @@ public class WeaponPickup : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("WeaponHolder belom di masukin.");
+            Debug.LogWarning("WeaponHolder belum dimasukkan.");
         }
 
         if (portal != null)
         {
-            portal.SetActive(false); // Menyembunyikan portal 
+            portal.SetActive(false);
         }
         else
         {
-            Debug.LogWarning("Portal belum dipasangkan pada setiap weaponpickup.");
-        }
-    }
-
-    void Start()
-    {
-        if (weapon != null)
-        {
-            TurnVisual(false); // Menyembunyikan visual weaponnya
+            Debug.LogWarning("Portal belum dipasangkan.");
         }
     }
 
@@ -44,48 +36,33 @@ public class WeaponPickup : MonoBehaviour
 
             if (weapon != null)
             {
+                // Dapatkan weapon yang ada di pemain saat ini dan hentikan penembakan
                 Weapon currentWeapon = other.GetComponentInChildren<Weapon>();
                 if (currentWeapon != null)
                 {
-                    currentWeapon.gameObject.SetActive(false); // Mengubah senjata lama menjadi senjata yang baru
+                    currentWeapon.StopShooting(); // Hentikan penembakan senjata lama
+                    Destroy(currentWeapon.gameObject); // Hapus senjata lama
                 }
 
                 // Memberikan weapon baru ke pemain
                 Weapon newWeapon = Instantiate(weapon, other.transform.position, Quaternion.identity);
                 newWeapon.transform.SetParent(other.transform);
-                newWeapon.transform.localPosition = new Vector3(0, 0, 1); // Mengatur posisi pada player
+                newWeapon.transform.localPosition = new Vector3(0, 0, 1);
                 newWeapon.gameObject.SetActive(true);
 
-                TurnVisual(true, newWeapon); // Mengaktifkan visual weapon yang baru
+                // Mulai menembak senjata baru
+                newWeapon.StartShooting();
 
                 if (portal != null)
                 {
-                    portal.SetActive(true); // Menampilkan portal setelah palyer mengambil weapon
-                    Debug.Log("Weapon berhasil dipakai!");
+                    portal.SetActive(true);
+                    Debug.Log("Weapon berhasil dipakai dan mulai menembak!");
                 }
             }
             else
             {
-                Debug.LogWarning("Weapon tidak berhasil pada weaponpickup.");
+                Debug.LogWarning("Weapon tidak berhasil diambil.");
             }
-        }
-    }
-
-    // Metode ini untuk mengaktifkan atau menonaktifkan visual pada senjata
-    void TurnVisual(bool on)
-    {
-        if (weapon != null)
-        {
-            weapon.gameObject.SetActive(on);
-        }
-    }
-
-    // Metode dapat untuk mengaktifkan atau menonaktifkan visual senjata tertentu
-    void TurnVisual(bool on, Weapon weapon)
-    {
-        if (weapon != null)
-        {
-            weapon.gameObject.SetActive(on);
         }
     }
 }

@@ -17,11 +17,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // Mendapatkan komponen pada LevelManager
-        LevelManager = GetComponent<LevelManager>();
+        // Mendapatkan komponen LevelManager
+        LevelManager = FindObjectOfType<LevelManager>();  // Menggunakan FindObjectOfType jika LevelManager ada di tempat terpisah
         if (LevelManager == null)
         {
-            Debug.LogWarning("LevelManager component menghilang pada GameManager.");
+            Debug.LogWarning("LevelManager component tidak ditemukan pada GameManager.");
         }
     }
 }
