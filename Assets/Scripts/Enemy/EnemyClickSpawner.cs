@@ -8,7 +8,7 @@ public class EnemyClickSpawner : MonoBehaviour
 
     private void Start()
     {
-        Assert.IsTrue(enemyVariants.Length > 0, "Please add at least one Enemy Prefab!");
+        Assert.IsTrue(enemyVariants.Length > 0, "tambahkan perfabs Enemy!");
     }
 
     private void Update()

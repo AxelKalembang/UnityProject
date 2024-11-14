@@ -193,6 +193,9 @@ PrefabInstance:
       addedObject: {fileID: 1998994128}
     - targetCorrespondingSourceObject: {fileID: 8292510530705971463, guid: 84f3a96a977df8342a183a8e4b033cd9, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1998994130}
+    - targetCorrespondingSourceObject: {fileID: 8292510530705971463, guid: 84f3a96a977df8342a183a8e4b033cd9, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1998994127}
   m_SourcePrefab: {fileID: 100100000, guid: 84f3a96a977df8342a183a8e4b033cd9, type: 3}
 --- !u!1001 &102573643
@@ -261,6 +264,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3586321982724027552, guid: 43bcc00cb4aed6349b1a5fe2292ec9ed, type: 3}
       insertIndex: -1
       addedObject: {fileID: 102573646}
+    - targetCorrespondingSourceObject: {fileID: 3586321982724027552, guid: 43bcc00cb4aed6349b1a5fe2292ec9ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 102573648}
     - targetCorrespondingSourceObject: {fileID: 3586321982724027552, guid: 43bcc00cb4aed6349b1a5fe2292ec9ed, type: 3}
       insertIndex: -1
       addedObject: {fileID: 102573645}
@@ -341,6 +347,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+--- !u!114 &102573648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102573644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9fd9dfa0294c9419e0c75c55b22fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyVariants:
+  - {fileID: 102573644}
+  - {fileID: 1998994125}
+  - {fileID: 1619620614}
+  - {fileID: 273364288}
+  selectedVariant: 1
 --- !u!1 &273364288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8265948867019286962, guid: e2052939dbfcb1f4286243bf6fe090cc, type: 3}
@@ -448,7 +472,7 @@ MonoBehaviour:
   - {fileID: 8292510530705971463, guid: 84f3a96a977df8342a183a8e4b033cd9, type: 3}
   - {fileID: 967468464773102299, guid: fd074f27da0dde74fb01455776aeff8a, type: 3}
   - {fileID: 5065701804636216757, guid: 9208a6a42e0b84745bff44e39806cecb, type: 3}
-  selectedVariant: 0
+  selectedVariant: 4
 --- !u!1001 &702321868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -860,6 +884,9 @@ PrefabInstance:
       addedObject: {fileID: 1619620616}
     - targetCorrespondingSourceObject: {fileID: 967468464773102299, guid: fd074f27da0dde74fb01455776aeff8a, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1619620618}
+    - targetCorrespondingSourceObject: {fileID: 967468464773102299, guid: fd074f27da0dde74fb01455776aeff8a, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1619620615}
   m_SourcePrefab: {fileID: 100100000, guid: fd074f27da0dde74fb01455776aeff8a, type: 3}
 --- !u!1 &1619620614 stripped
@@ -937,7 +964,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d44db18d67af84d9a5208c72ccb5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 100
+--- !u!114 &1619620618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619620614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9fd9dfa0294c9419e0c75c55b22fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyVariants:
+  - {fileID: 102573644}
+  - {fileID: 1998994125}
+  - {fileID: 1619620614}
+  - {fileID: 273364288}
+  selectedVariant: 3
 --- !u!1 &1998994125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8292510530705971463, guid: 84f3a96a977df8342a183a8e4b033cd9, type: 3}
@@ -1027,6 +1072,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+--- !u!114 &1998994130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998994125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9fd9dfa0294c9419e0c75c55b22fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyVariants:
+  - {fileID: 102573644}
+  - {fileID: 1998994125}
+  - {fileID: 1619620614}
+  - {fileID: 273364288}
+  selectedVariant: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
