@@ -11,7 +11,7 @@ public class HitboxComponent : MonoBehaviour
         health = GetComponent<HealthComponent>();
         if (health == null)
         {
-            Debug.LogError("HealthComponent got missing" + gameObject.name);
+            Debug.LogError("HealthComponent missing on " + gameObject.name);
         }
 
         invincibility = GetComponent<InvincibilityComponent>();
@@ -23,18 +23,11 @@ public class HitboxComponent : MonoBehaviour
         {
             health.Subtract(damageAmount);
 
-            if (invincibility != null)
+            // Optionally trigger invincibility if not already in effect
+            if (invincibility != null && !invincibility.isInvincible)
             {
                 invincibility.TriggerInvincibility();
             }
-        }
-    }
-
-    public void Damage(Bullet bullet)
-    {
-        if (bullet != null)
-        {
-            Damage(bullet.damage);
         }
     }
 }
