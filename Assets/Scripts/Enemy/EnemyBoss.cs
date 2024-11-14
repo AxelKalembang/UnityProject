@@ -1,22 +1,32 @@
 using UnityEngine;
 
-public class EnemyHorizontal : MonoBehaviour
+public class EnemyBoss : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Kecepatan pergerakan
+    public float moveSpeed = 5f; 
+    public Weapon weapon; 
     private bool isMovingRight = true; 
     private float screenLeft;
     private float screenRight;
 
     void Start()
     {
-        // Menghitung batas kiri dan kanan layar
-        screenLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0.5f, 0)).x; // Batas kiri
-        screenRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 0.5f, 0)).x; // Batas kanan
+        
+        screenLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0.5f, 0)).x; 
+        screenRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 0.5f, 0)).x; 
+
+        if (weapon != null)
+        {
+            weapon.StartShooting(); 
+        }
+        else
+        {
+            Debug.LogWarning("Weapon component is not assigned to EnemyBoss.");
+        }
     }
 
     void Update()
     {
-       
+        
         if (isMovingRight)
         {
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
@@ -34,7 +44,6 @@ public class EnemyHorizontal : MonoBehaviour
         }
     }
 
-    
     void RespawnEnemy()
     {
         

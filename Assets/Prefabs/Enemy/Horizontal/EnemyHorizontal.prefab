@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 322777328771733514}
   - component: {fileID: 7092768623642594384}
   - component: {fileID: 4578433803435556858}
-  - component: {fileID: 8577402251625331994}
   m_Layer: 0
   m_Name: EnemyHorizontal
   m_TagString: Untagged
@@ -113,17 +112,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8577402251625331994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8292510530705971463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9244988343f48eb4a8a3fa1c07fbbb3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  speed: 5
