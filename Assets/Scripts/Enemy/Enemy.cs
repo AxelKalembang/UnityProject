@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    
-    public int health = 100;
+    public CombatManager combatmanager;
+    public EnemySpawner spawner;
+    public int level; 
+    public float moveSpeed;
 
-    
-    public virtual void TakeDamage(int damage)
+    private void OnDestroy()
     {
-        health -= damage;
-        if (health <= 0)
+        if (spawner != null && combatmanager != null)
         {
-            Destroy(gameObject);
+            spawner.OnEnemyKilled(); 
+            combatmanager.OnEnemyKilled(); 
         }
     }
 }

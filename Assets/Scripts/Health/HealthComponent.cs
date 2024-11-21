@@ -19,7 +19,7 @@ public class HealthComponent : MonoBehaviour
     public void Subtract(int amount)
     {
         health -= amount;
-        Debug.Log($"{gameObject.name} took {amount} damage, current health: {health}"); 
+        Debug.Log($"{gameObject.name} diterima {amount} damage, current health: {health}"); 
 
         if (health <= 0)
         {

@@ -23,7 +23,7 @@ public class HitboxComponent : MonoBehaviour
         {
             health.Subtract(damageAmount);
 
-            // Optionally trigger invincibility if not already in effect
+            
             if (invincibility != null && !invincibility.isInvincible)
             {
                 invincibility.TriggerInvincibility();

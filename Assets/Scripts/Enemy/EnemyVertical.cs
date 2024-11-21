@@ -1,43 +1,38 @@
 using UnityEngine;
 
-public class EnemyVertical : MonoBehaviour
+public class EnemyVertical : Enemy
 {
-    public float moveSpeed = 5f; // Kecepatan pergerakan
-    private bool isMovingDown = true; // Arah pergerakan vertikal
-    private float screenTop;
-    private float screenBottom;
+    private bool isMovingDown = true; 
+    private float screenTop; 
+    private float screenBottom; 
 
     void Start()
     {
-        // Menghitung batas atas dan bawah layar
-        screenTop = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 1, 0)).y; // Batas atas
-        screenBottom = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0, 0)).y; // Batas bawah
+        
+        screenTop = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 1, 0)).y;
+        screenBottom = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0, 0)).y;
+
+        
+        transform.position = new Vector3(
+            Random.Range(-7f, 7f), 
+            Random.value < 0.5f ? screenTop : screenBottom,
+            0f
+        );
+
+        
+        isMovingDown = transform.position.y > 0;
     }
 
     void Update()
     {
-        // Pergerakan dari atas ke bawah atau sebaliknya
+        
         if (isMovingDown)
-        {
             transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
-        }
         else
-        {
             transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
-        }
 
-        // Jika sudah melewati batas layar, balikkan arah pergerakan
+        
         if (transform.position.y <= screenBottom || transform.position.y >= screenTop)
-        {
             isMovingDown = !isMovingDown;
-            RespawnEnemy();
-        }
-    }
-
-    // Fungsi untuk memposisikan ulang Enemy setelah keluar dari layar
-    void RespawnEnemy()
-    {
-        // Mengatur posisi spawn secara acak, atau dapat disesuaikan dengan kebutuhan
-        transform.position = new Vector3(Random.Range(-10f, 10f), screenTop, 0f);
     }
 }
