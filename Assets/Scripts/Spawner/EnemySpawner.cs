@@ -42,15 +42,36 @@ public class EnemySpawner : MonoBehaviour
         StopAllCoroutines();
     }
 
-    private IEnumerator SpawnEnemies()
+private IEnumerator SpawnEnemies()
+{
+    int spawnedEnemies = 0; 
+
+    while (spawnedEnemies < spawnCount)
     {
-        for (int i = 0; i < spawnCount; i++)
+        
+        if (spawnedEnemy != null)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(spawnInterval);
+            SpawnEnemy(); 
+            spawnedEnemies++;
         }
-        StopSpawning();
+        else
+        {
+            Debug.LogWarning("SpawnedEnemy prefab is not assigned. Cannot spawn enemy.");
+            break; 
+        }
+
+        
+        yield return new WaitForSeconds(Random.Range(spawnInterval * 0.8f, spawnInterval * 1.2f)); 
     }
+
+    
+    if (spawnedEnemies >= spawnCount)
+    {
+        StopSpawning();
+        Debug.Log($"All {spawnCount} enemies have been spawned.");
+    }
+}
+
 
     private void SpawnEnemy()
     {
@@ -63,16 +84,26 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void OnEnemyKilled()
-    {
-        totalKill++; 
-        totalKillWave++; 
+public void OnEnemyKilled()
+{
+    totalKill++; 
+    totalKillWave++; 
 
-        if (totalKillWave >= minimumKillsToIncreaseSpawnCount)
+   
+    if (totalKillWave == minimumKillsToIncreaseSpawnCount)
+    {
+        totalKillWave = 0; 
+        spawnCount += spawnCountMultiplier; 
+        
+       
+        if (spawnCountMultiplier < minimumKillsToIncreaseSpawnCount)
         {
-            totalKillWave = 0;
-            spawnCount = defaultSpawnCount + (spawnCountMultiplier * multiplierIncreaseCount);
-            multiplierIncreaseCount++;
+            spawnCountMultiplier += multiplierIncreaseCount;
         }
     }
+
+   
+    Debug.Log($"Enemy defeated! Total: {totalKill}, Current SpawnCount: {spawnCount}, Multiplier: {spawnCountMultiplier}");
+}
+
 }

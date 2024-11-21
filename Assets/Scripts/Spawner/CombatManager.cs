@@ -26,7 +26,7 @@ public class CombatManager : MonoBehaviour
         }
 
         
-        Debug.Log($"Total Kills: {totalKillGlobal}");
+         Debug.Log($"Stage: {waveNumber}, Timer: {timer:F2}, Total Kills: {totalKillGlobal}, Enemies Left: {totalEnemies}");
     }
 
     private void StartNewWave()
