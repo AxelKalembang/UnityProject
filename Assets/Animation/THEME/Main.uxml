@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; justify-content: space-between; align-items: flex-end; flex-basis: 20px; flex-direction: column-reverse; flex-wrap: wrap-reverse;">
+        <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: column; width: 50%; height: 850px; justify-content: flex-start; align-items: flex-start; align-self: flex-end; margin-bottom: 1000px;">
+            <ui:Label tabindex="-1" text="Wave :" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Wave" style="height: 191px; width: 1636px; color: rgb(255, 255, 255); font-size: 100px; -unity-text-align: upper-center;" />
+            <ui:Label tabindex="-1" text="Enemy :" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Enemy" style="height: 139px; width: 1558px; color: rgb(255, 255, 255); font-size: 100px; justify-content: space-around; align-items: flex-start; align-self: flex-start; flex-wrap: nowrap; -unity-text-align: lower-center;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Cont" style="flex-grow: 1; align-self: flex-start; justify-content: flex-start; align-items: flex-start; width: 50%; height: 850px;">
+            <ui:Label tabindex="-1" text="Health :" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Health" style="height: 175px; width: 430px; white-space: normal; align-items: flex-start; color: rgb(255, 255, 255); font-size: 100px; -unity-text-align: upper-left;" />
+            <ui:Label tabindex="-1" text="Point :" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Point" style="height: 126px; width: 439px; color: rgb(255, 255, 255); font-size: 100px; -unity-text-align: upper-center;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

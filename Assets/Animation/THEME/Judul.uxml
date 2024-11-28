@@ -1,0 +1,8 @@
+    <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+        <Style src="project://database/Assets/Animation/THEME/Stylesheet.uss?fileID=7433441132597879392&amp;guid=9d8f0eb3a48719445a8649e3275b8962&amp;type=3#Stylesheet" />
+        <ui:VisualElement style="flex-grow: 1; justify-content: flex-end; flex-direction: column-reverse;">
+            <ui:VisualElement name="Container" style="flex-grow: 0; align-items: center; justify-content: space-around; flex-basis: 100px; height: 1200px; margin-left: 0; padding-left: 15%; -unity-slice-top: 0; background-color: rgba(16, 0, 135, 0.25); border-top-width: 5px; padding-right: 15%; border-left-color: rgba(255, 255, 255, 0.53); border-right-color: rgba(255, 255, 255, 0.53); border-top-color: rgba(255, 255, 255, 0.53); border-bottom-color: rgba(255, 255, 255, 0.53); flex-direction: row; border-bottom-width: 5px;">
+                <ui:Button text="Axel Kalembang&apos;s" parse-escape-sequences="true" display-tooltip-when-elided="true" class="button" style="width: 300px; height: 64px; font-size: 24px; -unity-font: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); border-left-color: rgba(242, 253, 0, 0.65); border-right-color: rgba(242, 253, 0, 0.65); border-top-color: rgba(242, 253, 0, 0.65); border-bottom-color: rgba(242, 253, 0, 0.65); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:UXML>
